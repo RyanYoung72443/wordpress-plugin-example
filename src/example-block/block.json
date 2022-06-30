@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Testimonial",
 	"category": "advanced-blocks",
-	"icon": "quote",
+	"icon": "businessperson",
 	"description": "Example of a custom testimonial block.",
 	"supports": {
 		"html": false
