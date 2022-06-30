@@ -2,11 +2,11 @@
 // Markup for what wordpress will show on the plugins section of the admin panel
 /**
  * Plugin Name:       Plugin Boiler
- * Description:       Example static block scaffolded with Create Block tool.
+ * Description:       Example of custom blocks plugin scaffolded.
  * Requires at least: 5.9
  * Requires PHP:      7.0
  * Version:           0.1.0
- * Author:            The WordPress Contributors
+ * Author:            Ryan Young
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       plugin-boiler
@@ -23,7 +23,7 @@
  */
 function create_block_plugin_boiler_block_init() {
 	//register each block by folder name
-	register_block_type( __DIR__ . '/build/block-name' );
+	register_block_type( __DIR__ . '/build/example-block' );
 }
 add_action( 'init', 'create_block_plugin_boiler_block_init' );
 

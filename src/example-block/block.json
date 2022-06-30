@@ -1,18 +1,35 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "create-block/custom-blocks",
+	"name": "create-block/testimonial",
 	"version": "0.1.0",
-	"title": "Custom Blocks",
+	"title": "Testimonial",
 	"category": "advanced-blocks",
-	"icon": "smiley",
-	"description": "Example static block scaffolded with Create Block tool.",
+	"icon": "quote",
+	"description": "Example of a custom testimonial block.",
 	"supports": {
 		"html": false
 	},
-	"textdomain": "custom-blocks",
+	"textdomain": "testimonial",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
-	"attributes": {}
+	"attributes": {
+		"testimonialText": {
+			"type": "string",
+			"source": "html",
+			"selector": ".testimonial-block blockquote"
+		},
+		"testimonialName": {
+			"type": "string",
+			"source": "html",
+			"selector": "p"
+		},
+		"testimonialImage": {
+			"type": "string",
+			"source": "attribute",
+			"attribute": "src",
+			"selector": ".testimonial-info img"
+		}
+	}
 }

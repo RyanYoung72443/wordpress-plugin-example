@@ -6,12 +6,21 @@
 import { __ } from '@wordpress/i18n';
 
 /**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
+ * React hooks that are used to function text and media elements.
+ * It provides all the necessary props.
  *
- * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#mediaupload
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#richtext
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { MediaUpload, RichText } from '@wordpress/block-editor';
+
+/**
+ * React hooks that are used to function text and media elements.
+ * It provides all the necessary props.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#mediaupload
+ */
+import { Button } from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -22,6 +31,11 @@ import { useBlockProps } from '@wordpress/block-editor';
 import './editor.scss';
 
 /**
+ * Import utilities functions to simplify setting attributes
+ */
+import { changeAttribute, changeMediaAttribute } from '../utilities';
+
+/**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
  *
@@ -29,10 +43,53 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function Edit({
+	attributes: { testimonialText, testimonialName, testimonialImage },
+	setAttributes,
+}) {
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Advanced Blocks – hello from the editor!', 'advanced-blocks' ) }
-		</p>
+		<div className="testimonial-block">
+			<blockquote>
+				<RichText
+					placeholder="Add text for testimonial..."
+					onChange={(e) =>
+						setAttributes(changeAttribute('testimonialText', e))
+					}
+					value={testimonialText}
+				/>
+			</blockquote>
+			<div class="testimonial-info">
+				<img src={testimonialImage} />
+				<MediaUpload
+					onSelect={(e) =>
+						setAttributes(
+							changeMediaAttribute(
+								'testimonialImage',
+								e,
+								'medium'
+							)
+						)
+					}
+					type="image"
+					render={({ open }) => (
+						<Button
+							onClick={open}
+							icon="format-image"
+							showTooltip="true"
+							label="Add Image"
+						/>
+					)}
+				/>
+				<p>
+					<RichText
+						placeholder="Name... AnyCompany... Title..."
+						onChange={(e) =>
+							setAttributes(changeAttribute('testimonialName', e))
+						}
+						value={testimonialName}
+					/>
+				</p>
+			</div>
+		</div>
 	);
 }

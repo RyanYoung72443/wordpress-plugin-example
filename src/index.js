@@ -1,2 +1,2 @@
 //Imports for all blocks in plugin
-import "./example-block";
+import './example-block';

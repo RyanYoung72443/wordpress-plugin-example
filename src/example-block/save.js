@@ -22,13 +22,20 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function save() {
+export default function save({
+	attributes: { testimonialText, testimonialName, testimonialImage },
+}) {
 	return (
-		<p { ...useBlockProps.save() }>
-			{ __(
-				'Advanced Blocks – hello from the saved content!',
-				'advanced-blocks'
-			) }
-		</p>
+		<div className="testimonial-block">
+			<blockquote>
+				<RichText.Content value={testimonialText} />
+			</blockquote>
+			<div class="testimonial-info">
+				<img src={testimonialImage} />
+				<p>
+					<RichText.Content value={testimonialName} />
+				</p>
+			</div>
+		</div>
 	);
 }

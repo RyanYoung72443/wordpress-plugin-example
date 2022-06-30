@@ -6,7 +6,7 @@ import Edit from './edit';
 import save from './save';
 import metadata from './block.json';
 
-registerBlockType( metadata.name, {
+registerBlockType(metadata.name, {
 	// icon: {
 	// 	src: (),
 	// 	background: '',
@@ -14,4 +14,4 @@ registerBlockType( metadata.name, {
 	// },
 	edit: Edit,
 	save,
-} );
+});
