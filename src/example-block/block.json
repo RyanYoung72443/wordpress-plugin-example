@@ -1,35 +1,50 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "create-block/testimonial",
-	"version": "0.1.0",
-	"title": "Testimonial",
+	"name": "create-block/text-box",
+	"title": "Text Box",
 	"category": "advanced-blocks",
-	"icon": "businessperson",
-	"description": "Example of a custom testimonial block.",
+	"icon": "text-page",
+	"description": "A box of text.",
+	"keywords": ["text", "paragraph", "box"],
 	"supports": {
-		"html": false
+		"html": false,
+		"color": {
+			"background": true,
+			"text": true,
+			"gradients": true
+		}
 	},
-	"textdomain": "testimonial",
+	"textdomain": "text-box",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
 	"attributes": {
-		"testimonialText": {
+		"text": {
 			"type": "string",
 			"source": "html",
-			"selector": ".testimonial-block blockquote"
+			"selector": "h4"
 		},
-		"testimonialName": {
+		"alignment": {
 			"type": "string",
-			"source": "html",
-			"selector": "p"
+			"default": "left"
 		},
-		"testimonialImage": {
+		"backgroundColor": {
+			"type": "string"
+		},
+		"textColor": {
 			"type": "string",
-			"source": "attribute",
-			"attribute": "src",
-			"selector": ".testimonial-info img"
+			"default": "very-light-gray"
+		},
+		"gradient": {
+			"type": "string"
+		},
+		"style": {
+			"type": "object",
+			"default": {
+				"color": {
+					"background": "#f03"
+				}
+			}
 		}
 	}
 }

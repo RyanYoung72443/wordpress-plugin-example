@@ -1,52 +1,14 @@
-/**
- * The following styles get applied both on the front of your site
- * and in the editor.
- *
- * Replace them with your own styles or remove the file completely.
- */
+.wp-block-blocks-course-text-box {
 
- .container {
-	margin: 0 auto;
-	max-width: 1200px;
-}
+	&.text-box-align-right {
+		text-align: right;
+	}
 
-.testimonial-block {
-	border-top: 4px solid #ed143d;
-	padding: 1rem;
-	position: relative;
-}
-.testimonial-block blockquote::before {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	display: block;
-	width: 400px;
-	height: 400px;
-	background-image: url('img/quote.svg');
-	background-repeat: no-repeat;
-	background-position: bottom left;
-	background-size: 300px;
-	opacity: .3;
-	z-index: -2;
-}
-.testimonial-block blockquote{
-	padding-left: 150px;
-	margin: 3rem;
-}
+	&.text-box-align-center {
+		text-align: center;
+	}
 
-.testimonial-info {
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-}
-.testimonial-info img {
-	width: 100px;
-	border-radius: 50%;
-	margin-right: 20px;
-}
-.testimonial-info p {
-	font-family: 'Montserrat', sans-serif;
-	color: #ed143d;
-	font-weight: 700;
+	&.text-box-align-left {
+		text-align: left;
+	}
 }
