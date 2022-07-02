@@ -12,6 +12,28 @@
 			"background": true,
 			"text": true,
 			"gradients": true
+		},
+		"spacing": {
+			"padding": true
+		}
+	},
+	"styles": [
+		{
+			"name": "squared",
+			"label": "Squared",
+			"isDefault": true
+		},
+		{
+			"name": "rounded",
+			"label": "Rounded"
+		}
+	],
+	"example": {
+		"attributes": {
+			"text": "This is some text",
+			"textColor": "foreground",
+			"backgroundColor": "primary",
+			"shadow": true
 		}
 	},
 	"textdomain": "text-box",
@@ -22,18 +44,26 @@
 		"text": {
 			"type": "string",
 			"source": "html",
-			"selector": "h4"
+			"selector": "p"
 		},
-		"alignment": {
+		"textAlignment": {
 			"type": "string",
 			"default": "left"
+		},
+		"shadow": {
+			"type": "boolean",
+			"default": false
+		},
+		"shadowOpacity": {
+			"type": "number",
+			"default": 30
 		},
 		"backgroundColor": {
 			"type": "string"
 		},
 		"textColor": {
 			"type": "string",
-			"default": "very-light-gray"
+			"default": "background"
 		},
 		"gradient": {
 			"type": "string"
@@ -42,7 +72,15 @@
 			"type": "object",
 			"default": {
 				"color": {
-					"background": "#f03"
+					"background": "#007cba"
+				},
+				"spacing": {
+					"padding": {
+						"top": "50px",
+						"right": "50px",
+						"bottom": "50px",
+						"left": "50px"
+					}
 				}
 			}
 		}
